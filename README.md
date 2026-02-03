@@ -1,4 +1,4 @@
-### India Electoral Rolls (2024–25)
+### India Electoral Rolls (2024–25) & Deleted Voter Records (SIR Draft 2025-26)
 
 ------------------------------------------------------------------------
 
@@ -19,11 +19,12 @@ Although it is already stated in the Google Form, I am reiterating two critical 
 
 Here's more on what is available on the Dataverse and how it is organized:
 
-| State   | Year | No. of Polling Stations (PS) / Parts | Mean Voters in a PS |
-|:--------|:-----|:-------------------------------------|:--------------------|
-| Haryana | 2024 | 20,626                               | \~987               |
+| State | Year | No. of Polling Stations (PS) / Parts | Mean Voters in a PS / Mean Deleted Voters in a PS |
+|:------------|:------------|:------------------------------|:--------------|
+| Haryana | 2024 | 20,626 | \~987 |
+| Uttar Pradesh (SIR Deleted Voters Draft List) | 2025/26 (SIR draft published in January 2026) | 177,422 | \~162 (mean deleted per PS) |
 
-#### Folderisation
+#### Folderisation (Voter Records)
 
 1.  StateName_Year_CSVFiles.tar.lz4
     -   State_Code
@@ -41,6 +42,12 @@ Here's more on what is available on the Dataverse and how it is organized:
         -   AC_NO
             -   Out_PART_NO.JSON
             -   Out_Meta_PART_NO.JSON
+
+#### Folderisation (SIR Deleted Voter Records)
+
+1.  StateName_SIR_DeletedVoters_CSVFiles.tar.zst
+
+    -   AC-level CSV files of deleted voter records
 
 ------------------------------------------------------------------------
 
@@ -74,11 +81,11 @@ This work has been challenging but also rewarding in exploring the frontier of m
 
     -   Pittsburgh Supercomputing Center’s Bridges-2 cluster
 
-The Haryana data was primarily processed on UC Merced’s Pinnacles and Purdue’s Anvil clusters. My text extraction script uses the Surya-OCR engine developed by Datalab.
+The Haryana data was primarily processed on UC Merced’s Pinnacles and Purdue’s Anvil clusters. My text extraction script uses the Surya-OCR engine developed by Datalab. Uttar Pradesh's SIR deleted voter records were processed on UC Merced's Pinnacles cluster.
 
 Existing work on India’s then-machine-readable electoral rolls by Raphael Susewind as well as Gaurav Sood and colleagues' work served as an inspiration and a prototype to follow.
 
-While I wrote the core scripts, I received troubleshooting support from a vendor. I also used generative AI tools, especially OpenAI’s o4-mini-high model, for coding assistance. All errors are mine, of course.
+While I wrote the core scripts, I received troubleshooting support from a vendor. I also used generative AI tools, especially OpenAI’s o4-mini-high & Claude's Sonnet 4.5 models, for coding assistance. All errors are mine, of course.
 
 ------------------------------------------------------------------------
 
