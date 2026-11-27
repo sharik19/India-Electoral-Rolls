@@ -1,13 +1,13 @@
-### India Electoral Rolls (2024–25) & Deleted Voter Records (SIR Draft 2025-26)
+### India's Electoral Rolls (2024–25), SIR Rolls & Deleted Voter Records (2025–26)
 
 ------------------------------------------------------------------------
 
-This repository contains the documentation for the parsed and analyzable voter records available via [Harvard Dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/YNEY6G). It looks less like a repository at the moment. In the future, I will update this repository with the scripts used for downloading the rolls and subsequent text extraction using Surya-OCR. You can request access to this dataset using the following [Google Form](https://forms.gle/26spnRXCsYEoP1uQ7). Before using the dataset, I strongly recommend carefully reading the documentation (including the codebook) available [here](https://github.com/sharik19/India-Electoral-Rolls-2024-25/blob/main/Documentation_India_Voter_Rolls_SL_v1.pdf). It will make your job easier and save me from answering issues already covered in the documentation.
+This repository contains the documentation for the parsed and analyzable voter records available via [Harvard Dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/YNEY6G). It looks less like a repository at the moment. In the future, I will update this repository with the scripts used for downloading the rolls and subsequent text extraction using Surya-OCR. You can request access to this dataset using the following [Google Form](https://forms.gle/26spnRXCsYEoP1uQ7). Before using the dataset, I strongly recommend carefully reading the documentation (including the codebook) available [here](https://github.com/sharik19/India-Electoral-Rolls/blob/main/Documentation_India_Electoral_Rolls_SL.pdf). It will make your job easier and save me from answering issues already covered in the documentation.
 
-While I have only released one state's parsed, analyzable files at the moment, I plan on regularly updating the dataset with voter records from more states, depending on resource availability.
+I have now released parsed, analyzable files for the electoral rolls of 10 states and Delhi, the SIR rolls of Uttar Pradesh, Karnataka and Gujarat, and deleted voters' records (ASDD lists) from the SIR draft stage of five of them. I plan on regularly updating the dataset with voter records from more states, depending on resource availability.
 
 If you use this dataset, please cite it appropriately. A suggested format is:\
-**Sharik Laliwala. 2025. "India's Electoral Rolls (2024–25)." Harvard Dataverse.** **DOI: <https://doi.org/10.7910/DVN/YNEY6G>.**
+**Sharik Laliwala. 2026. "India's Electoral Rolls (2024–25), SIR Rolls & Deleted Voter Records (2025–26)." Harvard Dataverse.** **DOI: <https://doi.org/10.7910/DVN/YNEY6G>.**
 
 Although it is already stated in the Google Form, I am reiterating two critical points here:
 
@@ -19,35 +19,62 @@ Although it is already stated in the Google Form, I am reiterating two critical 
 
 Here's more on what is available on the Dataverse and how it is organized:
 
-| State | Year | No. of Polling Stations (PS) / Parts | Mean Voters in a PS / Mean Deleted Voters in a PS |
-|:------------|:------------|:------------------------------|:--------------|
-| Haryana | 2024 | 20,626 | \~987 |
-| Uttar Pradesh (SIR Deleted Voters Draft List) | 2025/26 (SIR draft published in January 2026) | 177,422 | \~162 (mean deleted per PS) |
+#### Voter Records: Electoral Rolls (2024–25)
+
+| State | Year | No. of Assembly Constituencies (AC) | No. of Polling Stations (PS) / Parts | Mean Voters in a PS |
+|:------------|:------------|:--------------|:--------------|:--------------|
+| Andhra Pradesh | 2024 (Lok Sabha election) | 175 | 46,164 | \~938 |
+| Bihar | 2024 (Lok Sabha election) | 243 | 76,390 | \~1,006 |
+| Chhattisgarh | 2024 (Lok Sabha election) | 90 | 24,104 | \~872 |
+| Delhi | 2025 (Vidhan Sabha election) | 70 | 13,033 | \~1,202 |
+| Gujarat | 2025 (final roll published in January 2025) | 182 | 50,948 | \~992 |
+| Haryana | 2024 (Vidhan Sabha election) | 90 | 20,626 | \~987 |
+| Himachal Pradesh | 2024 (Lok Sabha election) | 68 | 7,990 | \~714 |
+| Karnataka | 2024 (Lok Sabha election) | 224 | 58,571 | \~942 |
+| Madhya Pradesh | 2024 (Lok Sabha election) | 230 | 63,346 | \~886 |
+| Maharashtra | 2024 (Vidhan Sabha election) | 287 (of 288) | 99,210 | \~974 |
+| Uttar Pradesh | 2024 (Lok Sabha election) | 403 | 161,955 | \~971 |
+
+#### Voter Records: SIR Rolls (2025–26)
+
+| State | Roll | No. of Assembly Constituencies (AC) | No. of Polling Stations (PS) / Parts | Mean Voters in a PS |
+|:------------|:------------|:--------------|:--------------|:--------------|
+| Gujarat | SIR final roll (published in February 2026) | 182 | 56,620 | \~785 |
+| Karnataka | SIR draft roll (published in August 2026) | 224 | 60,923 | \~733 |
+| Karnataka | SIR final roll (published in October 2026) | 224 | 60,923 | \~749 |
+| Uttar Pradesh | SIR final roll (published in April 2026) | 403 | 177,310 | \~759 |
+
+An SIR final roll reprints the SIR draft roll and adds new voters at the end of each part. Voters deleted after the draft stay printed with a deletion mark, which is kept in `DelOrAdd_Code` (E, S, R, M or Q; # marks a modified entry). New voters carry the supplement number in `Addition_List`.
+
+#### Deleted Voter Records: ASDD Lists at the SIR Draft Stage (2025–26)
+
+| State | Year | No. of Polling Stations (PS) / Parts | Mean Deleted Voters in a PS |
+|:------------|:------------|:--------------|:--------------|
+| Bihar | 2025 (SIR draft published in August 2025) | 90,578 | \~72 |
+| Uttar Pradesh | 2025/26 (SIR draft published in January 2026) | 177,422 | \~162 |
+| Delhi | 2026 (SIR draft published in August 2026) | 14,947 | \~318 |
+| Karnataka | 2026 (SIR draft published in August 2026) | 60,736 | \~177 |
+| Gujarat | 2025/26 (SIR draft published in December 2025) | 56,586 | \~130 |
 
 #### Folderisation (Voter Records)
 
-1.  StateName_Year_CSVFiles.tar.lz4
-    -   State_Code
+1.  StateName_StateCode_RollYear_ACxxx-yyy.tar.gz (for example, Haryana_S07_AE2024_AC001-090.tar.gz; SIR rolls: Karnataka_S10_SIRDraft2026_AC001-224.tar.gz)
+    -   StateName_StateCode
         -   AC_NO
             -   Part_NO.CSV
-2.  StateName_Year_JSONFiles.tar.lz4
-    -   State_Code
-        -   AC_NO
-            -   Part_NO.JSONL
-            -   Part_NO_Pages_Meta.JSON
-3.  StateName_Year_Metadata.tar.lz4
-    -   Meta_Checked_STATE_CODE.CSV
-4.  StateName_Year_Metadata.tar.lz4
-    -   State_Code
-        -   AC_NO
-            -   Out_PART_NO.JSON
-            -   Out_Meta_PART_NO.JSON
+
+GE2024 in a file name refers to the roll prepared for the 2024 Lok Sabha election, while AE2024 and AE2025 refer to the rolls prepared for the Vidhan Sabha elections of 2024 and 2025. FR2025 is Gujarat's final roll of January 2025, and SIRDraft2026 and SIRFinal2026 are the draft and final rolls of the 2025–26 Special Intensive Revision. ACxxx-yyy gives the range of AC numbers inside a file. Maharashtra's and Uttar Pradesh's rolls (including Uttar Pradesh's SIR final roll) are split across multiple files (part01, part02, and so on). In Uttar Pradesh's case, the third file (part03) holds 23 ACs that I processed later; these ACs fall within the AC ranges of the first two files but are not included in them.
 
 #### Folderisation (SIR Deleted Voter Records)
 
-1.  StateName_SIR_DeletedVoters_CSVFiles.tar.zst
+1.  StateName_SIR_DeletedVoters_CSVFiles.tar.zst (Uttar Pradesh) and StateName_SIRYear_DeletedVoters_CSVFiles.tar.zst (Gujarat)
 
     -   AC-level CSV files of deleted voter records
+
+2.  StateName_SIRYear_DeletedVoters_CSVFiles.tar.zst (Bihar, Delhi, and Karnataka)
+
+    -   StateName_SIRYear_DeletedVoters
+        -   One state-level CSV file of deleted voter records
 
 ------------------------------------------------------------------------
 
@@ -59,7 +86,7 @@ You can validate data fields by applying some basic checks. I have not implement
 2.  Roll No & Voter ID: Are there roll numbers that exceed the typical maximum length of a roll (1500 voters + 20% margin of safety)? Any missing roll numbers or EPIC ID? Any EPIC ID that do not make sense (under 5 characters or over 30 characters)?
 3.  Part Number: Any characters in this field instead of numeric values?
 4.  Age: Unusual age numbers such as under 18 or over 110 years?
-5.  Totals in Metadata file: Any extremely skewed gender ratio (5:1 : M:F) or over 200 voters in "Other" gender column? Additions or deletions exceeding 15-20% of the original totals?
+5.  Gender: Any values other than male, female, or third gender (in English or Hindi, depending on the state)?
 
 ------------------------------------------------------------------------
 
@@ -71,7 +98,7 @@ This work has been challenging but also rewarding in exploring the frontier of m
 
 1.  University of California, Merced’s Pinnacles cluster
 
-2.  NSF ACCESS-CI Allocations (Grant No. SOC250025), which provided access to:
+2.  NSF ACCESS-CI Allocations (Grant Nos. SOC250025 and SOC250082), which provided access to:
 
     -   San Diego Supercomputer Center’s Expanse cluster
 
@@ -81,11 +108,13 @@ This work has been challenging but also rewarding in exploring the frontier of m
 
     -   Pittsburgh Supercomputing Center’s Bridges-2 cluster
 
-The Haryana data was primarily processed on UC Merced’s Pinnacles and Purdue’s Anvil clusters. My text extraction script uses the Surya-OCR engine developed by Datalab. Uttar Pradesh's SIR deleted voter records were processed on UC Merced's Pinnacles cluster.
+3.  OSG Consortium's Open Science Pool
 
-Existing work on India’s then-machine-readable electoral rolls by Raphael Susewind as well as Gaurav Sood and colleagues' work served as an inspiration and a prototype to follow.
+My text extraction script uses the Surya-OCR engine developed by Datalab.
 
-While I wrote the core scripts, I received troubleshooting support from a vendor. I also used generative AI tools, especially OpenAI’s o4-mini-high & Claude's Sonnet 4.5 models, for coding assistance. All errors are mine, of course.
+Existing work on India’s machine-readable electoral rolls by Raphael Susewind as well as Gaurav Sood and colleagues' work served as an inspiration and a prototype to follow.
+
+While I wrote the core scripts, I received troubleshooting support from a vendor. I also used generative AI tools for coding assistance. All errors are mine, of course.
 
 ------------------------------------------------------------------------
 
@@ -95,9 +124,13 @@ While I wrote the core scripts, I received troubleshooting support from a vendor
 
 2.  Gaurav Sood and colleagues’ [work](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/MUEGDT) to parse India's voter rolls (2015-17, I think?)
 
-3.  Datalab's fantastic [Surya-OCR](https://github.com/datalab-to/surya) engine
+3.  S1D Labs' [release](https://labs.s1d.me/up-eci) of Uttar Pradesh's voter rolls (2024 to 2027)
 
-4.  Some music that I recommend :)
+4.  Datalab's fantastic [Surya-OCR](https://github.com/datalab-to/surya) engine
+
+5.  [Diagram Chasing](https://diagramchasing.fun/), a publication of data-driven works of various interests
+
+6.  Some music that I recommend :)
 
     -   Naveen Bharathi's lovely YouTube [channel](https://www.youtube.com/@naveenbharathi)
 
